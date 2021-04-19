@@ -10,15 +10,15 @@ public class nomesanasvieta : MonoBehaviour, IEventSystemHandler, IDropHandler
 	{
 		if (notikums.pointerDrag != null)
 		{
-			if (notikums.pointerDrag.tag.Equals(base.tag))
+			if (notikums.pointerDrag.tag.Equals(tag))
 			{
 				vietasZrot = notikums.pointerDrag.GetComponent<RectTransform>().transform.eulerAngles.z;
-				velkamaObjZrot = base.GetComponent<RectTransform>().transform.eulerAngles.z;
+				velkamaObjZrot = GetComponent<RectTransform>().transform.eulerAngles.z;
 				rotacijasStarpiba = Mathf.Abs(vietasZrot - velkamaObjZrot);
 				Debug.Log("Objektu rotācijas starpība: " + rotacijasStarpiba);
 				vietasIzm = notikums.pointerDrag.GetComponent<RectTransform>().localScale;
 				Debug.Log("Nomešanas vietas izmērs: " + vietasIzm);
-				velkamaObjIzm = base.GetComponent<RectTransform>().localScale;
+				velkamaObjIzm = GetComponent<RectTransform>().localScale;
 				Debug.Log("Velkamā objekta izmērs: " + velkamaObjIzm);
 				xIzmeruStarpiba = Mathf.Abs(vietasIzm.x - velkamaObjIzm.x);
 				yIzmeruStarpiba = Mathf.Abs(vietasIzm.y - velkamaObjIzm.y);
@@ -33,9 +33,9 @@ public class nomesanasvieta : MonoBehaviour, IEventSystemHandler, IDropHandler
 				{
 					Debug.Log("Nomests pareizajā vietā!");
 					objektuSkripts.vaiIstajaVIeta = true;
-					notikums.pointerDrag.GetComponent<RectTransform>().anchoredPosition = base.GetComponent<RectTransform>().anchoredPosition;
-					notikums.pointerDrag.GetComponent<RectTransform>().localRotation = base.GetComponent<RectTransform>().localRotation;
-					notikums.pointerDrag.GetComponent<RectTransform>().localScale = base.GetComponent<RectTransform>().localScale;
+					notikums.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+					notikums.pointerDrag.GetComponent<RectTransform>().localRotation = GetComponent<RectTransform>().localRotation;
+					notikums.pointerDrag.GetComponent<RectTransform>().localScale = GetComponent<RectTransform>().localScale;
 					string tag = notikums.pointerDrag.tag;
 					switch (tag)
 					{

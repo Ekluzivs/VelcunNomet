@@ -23,16 +23,16 @@ public class dragdropskripts : MonoBehaviour, IPointerDownHandler, IEventSystemH
 	{
 		objektuSkripts.pedejaisVilktais = null;
 		Debug.Log("Uzsākta vilkšana");
-		kanvasGrupa.alpha = 0.6f;
+		kanvasGrupa.alpha = 0.5f;
 		kanvasGrupa.blocksRaycasts = false;
-		
+		velkObjRectTransf.SetSiblingIndex(29);
 	}
 
 	public void OnDrag(PointerEventData notikums)
 	{
 		Debug.Log("Notiek vilkšana");
 		velkObjRectTransf.anchoredPosition += notikums.delta / objektuSkripts.kanva.scaleFactor;
-		velkObjRectTransf.position = new Vector3(Mathf.Clamp(velkObjRectTransf.position.x, 10f, 1270f), Mathf.Clamp(velkObjRectTransf.position.y, 10f, 590f), velkObjRectTransf.position.z);
+		velkObjRectTransf.position = new Vector3(Mathf.Clamp(velkObjRectTransf.position.x, -640f, 640f), Mathf.Clamp(velkObjRectTransf.position.y, -300f, 300f), velkObjRectTransf.position.z);
 	}
 
 
