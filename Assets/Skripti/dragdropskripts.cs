@@ -9,7 +9,7 @@ public class dragdropskripts : MonoBehaviour, IPointerDownHandler, IEventSystemH
 	
 	public objekti objektuSkripts;
 
-	//public UzvarasNoteicejs uzvarasNoteicejaSkripts;
+	//public beigaspele uzvarasNoteicejaSkripts;
 
 	private CanvasGroup kanvasGrupa;
 	private RectTransform velkObjRectTransf;
@@ -56,9 +56,9 @@ public class dragdropskripts : MonoBehaviour, IPointerDownHandler, IEventSystemH
 		else
 		{
 			objektuSkripts.pedejaisVilktais = null;
-			//uzvarasNoteicejaSkripts.pareiziNomestie();
+		//	pareiziNomestoSkaits++;
 		}
 		objektuSkripts.vaiIstajaVIeta = false;
 	}
-
+	//public int pareiziNomestoSkaits;
 }
