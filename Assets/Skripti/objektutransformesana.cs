@@ -1,41 +1,71 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000006 RID: 6
+
 public class objektutransformesana : MonoBehaviour
 {
-	// Token: 0x0600000E RID: 14 RVA: 0x00002DCC File Offset: 0x00000FCC
+	public objekti objektuSkripts;
 	private void Update()
 	{
-		if (this.objektuSkripts.pedejaisVilktais != null)
-		{
-			if (Input.GetKey(KeyCode.Z))
-			{
-				this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.Rotate(0f, 0f, Time.deltaTime * 9f);
-			}
-			if (Input.GetKey(KeyCode.X))
-			{
-				this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.Rotate(0f, 0f, -Time.deltaTime * 9f);
-			}
-			if (Input.GetKey(KeyCode.UpArrow) && this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.y < 0.8f)
-			{
-				this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale = new Vector3(this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.x, this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.y + 0.001f, 1f);
-			}
-			if (Input.GetKey(KeyCode.DownArrow) && (double)this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.y > 0.35)
-			{
-				this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale = new Vector3(this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.x, this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.y - 0.001f, 1f);
-			}
-			if (Input.GetKey(KeyCode.LeftArrow) && (double)this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.x > 0.35)
-			{
-				this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale = new Vector3(this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.x - 0.001f, this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.y, 1f);
-			}
-			if (Input.GetKey(KeyCode.RightArrow) && (double)this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.x < 0.9)
-			{
-				this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale = new Vector3(this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.x + 0.001f, this.objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.y, 1f);
-			}
-		}
-	}
+        if(objektuSkripts.pedejaisVilktais != null)
+        {
+            //Nospiežot pogu Z objektu var rotēt pretēji pulksteņrādītāja virzienam
+            if (Input.GetKey(KeyCode.Z))
+            {
+                objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.Rotate(0, 0, Time.deltaTime * 9f);
+            }
 
-	// Token: 0x04000030 RID: 48
-	public objekti objektuSkripts;
+            //Nospiežot pogu X objektu var rotēt pulksteņrādītāja virzienā
+            if (Input.GetKey(KeyCode.X))
+            {
+                objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.Rotate(0, 0, -Time.deltaTime * 9f);
+            }
+
+
+            //Nospiežot bultiņu pa kreisi, iespējams objektu stiept šaurāku pa x asi
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                //Lai objektu nevar izstiept mīnusā
+                if (objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.x > 0.35)
+                {
+                    objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().localScale =
+                        new Vector2(objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.x - 0.001f,
+                        objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.y);
+                }
+            }
+
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                //Lai objektu nevar izstiept pārāk palašu pa x asi
+                if (objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.x < 0.9)
+                {
+                    objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().localScale =
+                        new Vector2(objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.x + 0.001f,
+                        objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.y);
+                }
+            }
+
+            //Nospiežot bultiņu uz augšu, objektu stiepj lielāku pa y asi
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                if (objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.y < 0.8)
+                {
+                    objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().localScale =
+                        new Vector2(objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.x,
+                        objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.y + 0.001f);
+                }
+            }
+
+            //Nospiežot bultiņu uz leju, objektu stiepj šaurāku pa y asi
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                if (objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.y > 0.35)
+                {
+                    objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().localScale =
+                        new Vector2(objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.x,
+                        objektuSkripts.pedejaisVilktais.GetComponent<RectTransform>().transform.localScale.y - 0.001f);
+                }
+			}
+        }
+    }
 }

@@ -4,9 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - atkritumumasina
-  - atropalidziba
-  - autobuss
+  - Passarati
+  - Cements
+  - BMW
+  - Eskavators
+  - Atkritumi
+  - Atrie
+  - Buss
+  - POPO
+  - DzeltensTraktors
+  - TraktorsArPiekabi
+  - Ugunsdzeseji
   layers:
   - Default
   - TransparentFX
