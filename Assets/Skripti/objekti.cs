@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class objekti : MonoBehaviour
 {
-	
+	//GameObject, kas uzglabā visus velkamos objektus
 	public GameObject atkritumuMasina;
 	
 	public GameObject atroMasina;
@@ -25,7 +25,8 @@ public class objekti : MonoBehaviour
 	public GameObject e46;
 
 	public GameObject ugunsdzeseji;
-
+    /*Uzglabās velkamo objektu sākotnējās pozīcijas
+    koordinātas (lai zinātu, kur aizmest objektu, ja tas nolikts nepareizajā vietā)*/
 	[HideInInspector]
 	public Vector2 bussKoord;
 
@@ -40,7 +41,7 @@ public class objekti : MonoBehaviour
 
 	[HideInInspector]
 	public Vector2 eskavatorsKoord;
-	
+
 	[HideInInspector]
 	public Vector2 atkrKoord;
 
@@ -58,17 +59,18 @@ public class objekti : MonoBehaviour
 
 	[HideInInspector]
 	public bool vaiIstajaVIeta;
-
+//Uzglabās objektu, kurš ir pēdējais pārvietotais
 	public GameObject pedejaisVilktais;
 
 	[HideInInspector]
 	public Vector2 ugunsdzesejiKoord;
-
+//Uzglabās ainā esošo kanvu
 	public Canvas kanva;
-
+//Uzglabās skaņas avotu, kurā atskaņot audio failu
 	public AudioSource skanasAvots;
 
 	public AudioClip[] skanaKoAtskanot;
+	 //Funkcija nostrādā tiklīdz nospiesta play poga
 	private void Awake()
 	{
 		atkrKoord = atkritumuMasina.GetComponent<RectTransform>().localPosition;

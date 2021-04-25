@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class objektutransformesana : MonoBehaviour
 {
+	//Uzglabā norādi uz Objektu skriptu
 	public objekti objektuSkripts;
 	private void Update()
 	{
+		//Ja ir kāds pēdējais vilktais objekts, tad var veikt darbības ar to
         if(objektuSkripts.pedejaisVilktais != null)
         {
             //Nospiežot pogu Z objektu var rotēt pretēji pulksteņrādītāja virzienam
